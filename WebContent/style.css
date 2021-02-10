@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+body{
+	font-family: 'Fredoka One', cursive;
+}
+
 #tit{
 	font-family: 'Fredoka One', cursive;
 	font-weight: 400;
