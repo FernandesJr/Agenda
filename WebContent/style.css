@@ -6,7 +6,7 @@ body{
 	font-family: 'Fredoka One', cursive;
 }
 
-#tit{
+h1{
 	font-family: 'Fredoka One', cursive;
 	font-weight: 400;
 	color: rgb(3, 72, 95);
@@ -21,9 +21,22 @@ body{
 	background-color: rgb(3, 72, 95);
 	color: white;
 	border-radius: 5px;
+	cursor: pointer;
 }
 
-img{
-	padding-top: 15px;
+
+.input01{
+	width: 320px;
+	padding: 5px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border-color: aqua;
+}
+
+.input02{
+	padding: 5px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border-color: aqua;
 }
 
