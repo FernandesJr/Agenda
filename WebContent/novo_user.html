@@ -10,27 +10,28 @@
 
 <body>
 	<h1>Criar novo contato</h1>
-	<form action="" name="frmContato">
+	<form name="frmContato" action="insert">
 		<table>
 			<tr>
 				<td>
-					<input type="text" placeholder="Nome" class="input01" id="nome">
+					<input type="text" name="nome" placeholder="Nome" class="input01"  id="nome">
 				</td>
 			</tr>
 			<tr class="col">
 				<td>
-					<input type="tel" placeholder="Fone" class="input02" id="fone">
+					<input type="tel" name="fone" placeholder="Fone" class="input02" id="fone">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="email" placeholder="Email" class="input01" id="email">
+					<input type="email" name="email" placeholder="Email" class="input01" id="email">
 				</td>
 			</tr>
 		</table>
 	</form>
 	<input type="button" value="Adicionar" class="botaoBase" onclick="validar()">
+	<a href="main" class="botaoBase">Voltar</a>
 	
-<script type="text/javascript" src="scripts/validarUser.js"></script>
+<script src="scripts/validarUser.js"></script>
 </body>
 </html>
