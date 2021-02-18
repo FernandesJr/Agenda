@@ -55,7 +55,7 @@ public class DAO {
 	
 	//Read dos contatos
 	public ArrayList<JavaBeans> listarContatos(){
-		ArrayList<JavaBeans> lista = new ArrayList<>();
+		ArrayList<JavaBeans> lista = new ArrayList<JavaBeans>();
 		String sql = "select * from contatos order by nome;";
 		try {
 			
@@ -70,11 +70,11 @@ public class DAO {
 				String fone  = result.getString("tel");
 				String email = result.getString("email");
 				
-				lista.add(new JavaBeans(id, nome, fone, email));
-				com.close();
+				lista.add(new JavaBeans(id, nome, fone, email));	
 			}
+			com.close();
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("ERRO: " + e);
 			return null;
 		}
 		

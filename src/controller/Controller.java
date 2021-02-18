@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,16 +45,11 @@ public class Controller extends HttpServlet {
 		
 		ArrayList<JavaBeans> listaContatos = this.dao.listarContatos();
 		
-		for (JavaBeans contato : listaContatos) {
-			System.out.println(contato.getId());
-			System.out.println(contato.getNome());
-			System.out.println(contato.getFone());
-			System.out.println(contato.getEmail());
-			System.out.println("----------------------------------------------");
-		}
+		request.setAttribute("contatos", listaContatos); //Incluindo a lista na minha requisição
 		
-		// Envia a direção para
-		response.sendRedirect("agenda.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("agenda.jsp"); //Despachando a requisição para o caminho agenda.jsp 
+		rd.forward(request, response); // Passando para a frente de fato, finalizando a requisição
+		
 	}
 	
 	private void addContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
