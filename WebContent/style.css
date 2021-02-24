@@ -3,8 +3,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
 
+
+body{
+	background-color: white;
+	color: black;
+}
+.img{
+	width: 255px;
+	margin-top: 200px;
+	margin: auto;
+	border-radius: 10px;
+	padding: 15px;
+	background-color: #ddd;
+}
+
+#tit{
+	text-align: center;
+}
+
+.center{
+	width: 300px;
+	margin: auto;
+}
+
+.bcenter{
+	margin-left: 110px;
+}
+
+.e-center{
+	width:780px;
+	margin: auto;
+}
+
 h1{
-	font-family: 'Fredoka One', cursive;
+	font-family: 'PT Sans', sans-serif;
 	font-weight: 400;
 	color: rgb(3, 72, 95);
 }
@@ -19,6 +51,31 @@ h1{
 	border-radius: 5px;
 	cursor: pointer;
 	background-color: rgb(3, 72, 95);
+}
+
+.botaoExcluir{
+	text-decoration: none;
+	font-family: 'Fredoka One', cursive;
+	font-weight: 100;
+	font-size: 18px;
+	padding: 5px 10px 5px 10px;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: rgb(210, 23, 37);
+}
+
+.botaoSair{
+	text-decoration: none;
+	font-family: 'Fredoka One', cursive;
+	font-weight: 100;
+	font-size: 16px;
+	padding: 3px 8px 3px 8px;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: rgb(231, 31, 46);
+	margin-left: 560px;
 }
 
 
@@ -37,11 +94,21 @@ h1{
 	border-color: aqua;
 }
 
+.inputStatic{
+	width: 45px;
+	padding: 5px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border-color: #ddd;
+	background-color: #ddd;
+}
+
 #tabela{
 	font-family: 'PT Sans', sans-serif;
 	margin-top: 30px;
 	border-collapse: collapse;
 	box-shadow: 3px 3px #ddd;
+	border-radius: 10px 10px 10px 0px;
 }
 
 #tabela th {
@@ -49,7 +116,7 @@ h1{
 	padding: 10px;
 	text-align: left;
 	background-color: rgb(3, 72, 95);
-	color: #fff;
+	color: #ddd;
 }
 
 #tabela td {

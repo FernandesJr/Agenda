@@ -16,28 +16,42 @@
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="img/favicon.png">
 </head>
-<body>
-	<h1 id="tit">Agenda de contatos</h1>
-	<a href="novo_user.html" class="botaoBase">Novo contato</a>
+<body class="e-center">
+
+	<header>
+		<h1>Agenda de contatos</h1>
+		<div>
+			<a href="novo_user.html" class="botaoBase">Novo contato</a> <a href="index.html" class="botaoSair">sair</a>
+		</div>
+	</header>
 	<table id="tabela">
 		<thead>
 			<tr>
-				<th>id</th>
-				<th>nome</th>
-				<th>fone</th>
-				<th>email</th>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Fone</th>
+				<th>Email</th>
+				<th>Opções</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody id = "table">
 			<% for (int i = 0; i < lista.size(); i++){ %>
 				<tr>
 					<td><%=lista.get(i).getId()%></td>
 					<td><%=lista.get(i).getNome()%></td>
 					<td><%=lista.get(i).getFone() %></td>
 					<td><%=lista.get(i).getEmail()%></td>
+					<td>
+						<!--  <input type="button" value="EDITAR" class="botaoBase" onclick="editarContato()"> 
+						<input type="button" value="EXCLUIR" class="botaoExcluir" onclick="excluirContato()">
+						-->
+						<a href="Controller?action=upd&id=<%=lista.get(i).getId()%>" class="botaoBase" >Editar</a>
+						<a href="Controller?action=del&id=<%=lista.get(i).getId()%>" class="botaoExcluir" >Excluir</a>
+					</td>
 				</tr>
 			<%} %>
 		</tbody>
 	</table>
+<script src="scripts/editTable.js"></script>
 </body>
 </html>

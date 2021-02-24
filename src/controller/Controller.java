@@ -14,7 +14,7 @@ import model.DAO;
 import model.JavaBeans;
 
 
-@WebServlet(urlPatterns = {"/Controller", "/main", "/insert"})
+@WebServlet(urlPatterns = {"/Controller", "/main", "/insert", "/updDB"})
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -30,13 +30,21 @@ public class Controller extends HttpServlet {
 		//Método principal, a requisição do index vem direto para cá.
 		
 		String req = request.getServletPath();
+		String acao = request.getParameter("action"); //Uma outra maneira de capturar de onde veio a requisão
 		System.out.println("requisição: " + req);
+		System.out.println("ação: " + acao);
 		
 		if(req.equals("/main")) {
 			this.agenda(request, response);
 		}else if(req.equals("/insert")){
 			this.addContato(request, response);
-		} else {
+		}else if(req.equals("/updDB")){               //Uma outra maneira de capturar de onde veio a requisão
+			this.updContatoDB(request, response);
+		}else if(acao.equals("upd")) {
+			this.SelectContato(request, response);
+		}else if(acao.equals("del")) {
+			this.delContato(request, response);
+		}else{
 			response.sendRedirect("index.html");
 		}
 	}
@@ -66,6 +74,51 @@ public class Controller extends HttpServlet {
 		// Redirecionando para a agenda de contatos
 		response.sendRedirect("main");
 		
+	}
+	
+	protected void delContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id = request.getParameter("id");
+		boolean persistir = this.dao.delContato(Integer.parseInt(id));
+		if(persistir) {
+			
+			ArrayList<JavaBeans> listaContatos = this.dao.listarContatos();
+			
+			request.setAttribute("contatos", listaContatos); //Incluindo a lista na minha requisição
+			
+			RequestDispatcher rd = request.getRequestDispatcher("agenda.jsp"); //Despachando a requisição para o caminho agenda.jsp 
+			rd.forward(request, response); // Passando para a frente de fato, finalizando a requisição
+		}else {
+			System.out.println("DEU ERRADO O DEL");
+		}
+		
+	}
+	
+	protected void SelectContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id = request.getParameter("id");
+		
+		JavaBeans contato = this.dao.selectContato(Integer.parseInt(id));
+		
+		request.setAttribute("contato", contato);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("upd.jsp"); //Despachando a requisição para o caminho agenda.jsp 
+		rd.forward(request, response); // Passando para a frente de fato, finalizando a requisição
+		
+		System.out.println("Cheguei em upd" + contato.getNome());
+	}
+	
+	protected void updContatoDB(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id = request.getParameter("id");
+		String nome = request.getParameter("nome");
+		String fone = request.getParameter("fone");
+		String email = request.getParameter("email");
+		
+		JavaBeans contato = new JavaBeans(Integer.parseInt(id), nome, fone, email); //this.dao.selectContato(Integer.parseInt(id));
+		this.dao.updContato(contato);
+		
+		this.agenda(request, response);
 	}
 
 }
