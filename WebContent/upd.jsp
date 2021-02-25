@@ -38,9 +38,9 @@
 			</tr>
 		</table>
 	</form>
-	<input type="button" value="Editar" class="botaoBase" onclick="editarContato()">
+	<input type="button" value="Editar" class="botaoBase" onclick="editarContatoDB()">
 	<a href="main" class="botaoBase">Voltar</a>
 	
-<script src="scripts/editTable.js"></script>
+<script src="scripts/editarTable.js"></script>
 </body>
 </html>

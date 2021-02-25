@@ -14,7 +14,7 @@ import model.DAO;
 import model.JavaBeans;
 
 
-@WebServlet(urlPatterns = {"/Controller", "/main", "/insert", "/updDB"})
+@WebServlet(urlPatterns = {"/Controller", "/main", "/insert", "/updDB"}) //Quando passei de 5 url o servidor parou
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -34,15 +34,15 @@ public class Controller extends HttpServlet {
 		System.out.println("requisição: " + req);
 		System.out.println("ação: " + acao);
 		
-		if(req.equals("/main")) {
+		if(req.equals("/main")){
 			this.agenda(request, response);
 		}else if(req.equals("/insert")){
 			this.addContato(request, response);
-		}else if(req.equals("/updDB")){               //Uma outra maneira de capturar de onde veio a requisão
+		}else if(req.equals("/updDB")){               
 			this.updContatoDB(request, response);
-		}else if(acao.equals("upd")) {
+		}else if(acao.equals("upd")){                //Uma outra maneira de capturar de onde veio a requisão
 			this.SelectContato(request, response);
-		}else if(acao.equals("del")) {
+		}else if(acao.equals("del")){
 			this.delContato(request, response);
 		}else{
 			response.sendRedirect("index.html");

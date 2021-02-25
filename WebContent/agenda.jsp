@@ -42,16 +42,13 @@
 					<td><%=lista.get(i).getFone() %></td>
 					<td><%=lista.get(i).getEmail()%></td>
 					<td>
-						<!--  <input type="button" value="EDITAR" class="botaoBase" onclick="editarContato()"> 
-						<input type="button" value="EXCLUIR" class="botaoExcluir" onclick="excluirContato()">
-						-->
-						<a href="Controller?action=upd&id=<%=lista.get(i).getId()%>" class="botaoBase" >Editar</a>
-						<a href="Controller?action=del&id=<%=lista.get(i).getId()%>" class="botaoExcluir" >Excluir</a>
+						<input type="button" value="EDITAR" class="b-size botaoBase" onclick="editarContato(<%=lista.get(i).getId()%>)">
+						<input type="button" value="EXCLUIR" class="botaoExcluir" onclick="exluirContato(<%=lista.get(i).getId()%>)">
 					</td>
 				</tr>
 			<%} %>
 		</tbody>
 	</table>
-<script src="scripts/editTable.js"></script>
+	<script src="scripts/editarTable.js"></script>
 </body>
 </html>

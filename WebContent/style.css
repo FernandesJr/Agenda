@@ -31,7 +31,7 @@ body{
 }
 
 .e-center{
-	width:780px;
+	width:800px;
 	margin: auto;
 }
 
@@ -57,7 +57,7 @@ h1{
 	text-decoration: none;
 	font-family: 'Fredoka One', cursive;
 	font-weight: 100;
-	font-size: 18px;
+	font-size: 15px;
 	padding: 5px 10px 5px 10px;
 	color: white;
 	border-radius: 5px;
@@ -75,7 +75,11 @@ h1{
 	border-radius: 5px;
 	cursor: pointer;
 	background-color: rgb(231, 31, 46);
-	margin-left: 560px;
+	margin-left: 565px;
+}
+
+.b-size{
+	font-size: 15px !important;
 }
 
 
