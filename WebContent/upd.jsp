@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h1>Editar contato</h1>
-	<form name="frmEditContato" action="updDB">
+	<form name="frmEditContato" action="updDB" method="get">
 		<table>
 			<tr>
 				<td>
